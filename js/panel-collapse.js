@@ -7,8 +7,30 @@
  * file that was distributed with this source code.
  */
 
-+function ($) {
+/*global jQuery*/
+/*global window*/
+/*global PanelCollapse*/
+
+/**
+ * @param {jQuery} $
+ *
+ * @typedef {PanelCollapse} PanelCollapse
+ */
+(function ($) {
     'use strict';
+
+    /**
+     * Action on toggle button.
+     *
+     * @param {jQuery.Event|Event} event
+     *
+     * @typedef {PanelCollapse} Event.data The panel collapse instance
+     *
+     * @private
+     */
+    function onToggleAction(event) {
+        event.data.toggle();
+    }
 
     // PANEL COLLAPSE CLASS DEFINITION
     // ===============================
@@ -16,10 +38,10 @@
     /**
      * @constructor
      *
-     * @param htmlString|Element|Array|jQuery element
-     * @param Array                           options
+     * @param {string|elements|object|jQuery} element
+     * @param {object}                        options
      *
-     * @this
+     * @this PanelCollapse
      */
     var PanelCollapse = function (element, options) {
         this.guid       = jQuery.guid;
@@ -27,13 +49,14 @@
         this.$element   = $(element);
         this.$toggle    = $(this.options.collapseSelector, this.$element);
 
-        this.$element.on('click.st.panelcollapse', this.options.collapseSelector, $.proxy(onToggleAction, this));
-    };
+        this.$element.on('click.st.panelcollapse', this.options.collapseSelector, this, onToggleAction);
+    },
+        old;
 
     /**
      * Defaults options.
      *
-     * @type Array
+     * @type {object}
      */
     PanelCollapse.DEFAULTS = {
         classCollapse:       'panel-collapsed',
@@ -43,7 +66,7 @@
     /**
      * Toggles the panel collapse.
      *
-     * @this
+     * @this PanelCollapse
      */
     PanelCollapse.prototype.toggle = function () {
         this.$element.toggleClass(this.options.classCollapse);
@@ -52,7 +75,7 @@
     /**
      * Opens the panel collapse.
      *
-     * @this
+     * @this PanelCollapse
      */
     PanelCollapse.prototype.open = function () {
         this.$element.removeClass(this.options.classCollapse);
@@ -61,7 +84,7 @@
     /**
      * Closes the panel collapse.
      *
-     * @this
+     * @this PanelCollapse
      */
     PanelCollapse.prototype.close = function () {
         this.$element.addClass(this.options.classCollapse);
@@ -70,47 +93,35 @@
     /**
      * Destroy instance.
      *
-     * @this
+     * @this PanelCollapse
      */
     PanelCollapse.prototype.destroy = function () {
-        this.$element.off('click.st.panelcollapse', this.options.collapseSelector, $.proxy(onToggleAction, this));
-        this.$element.removeData('st.panelCollapse');
+        this.$element.off('click.st.panelcollapse', this.options.collapseSelector, onToggleAction);
+        this.$element.removeData('st.panelcollapse');
     };
-
-    /**
-     * Action on toggle button.
-     *
-     * @param jQuery.Event event
-     *
-     * @this
-     * @private
-     */
-    function onToggleAction (event) {
-        this.toggle();
-    }
 
 
     // PANEL COLLAPSE PLUGIN DEFINITION
     // ================================
 
-    var old = $.fn.panelCollapse;
+    old = $.fn.panelCollapse;
 
-    $.fn.panelCollapse = function (option, _relatedTarget) {
+    $.fn.panelCollapse = function (option, value) {
         return this.each(function () {
-            var $this   = $(this);
-            var data    = $this.data('st.panelCollapse');
-            var options = typeof option == 'object' && option;
+            var $this   = $(this),
+                data    = $this.data('st.panelcollapse'),
+                options = typeof option === 'object' && option;
 
-            if (!data && option == 'destroy') {
+            if (!data && option === 'destroy') {
                 return;
             }
 
             if (!data) {
-                $this.data('st.panelCollapse', (data = new PanelCollapse(this, options)));
+                $this.data('st.panelcollapse', (data = new PanelCollapse(this, options)));
             }
 
-            if (typeof option == 'string') {
-                data[option]();
+            if (typeof option === 'string') {
+                data[option](value);
             }
         });
     };
@@ -138,4 +149,4 @@
         });
     });
 
-}(jQuery);
+}(jQuery));
