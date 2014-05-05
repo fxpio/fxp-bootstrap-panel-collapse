@@ -104,9 +104,7 @@
     // PANEL COLLAPSE PLUGIN DEFINITION
     // ================================
 
-    old = $.fn.panelCollapse;
-
-    $.fn.panelCollapse = function (option, value) {
+    function Plugin(option, value) {
         return this.each(function () {
             var $this   = $(this),
                 data    = $this.data('st.panelcollapse'),
@@ -124,8 +122,11 @@
                 data[option](value);
             }
         });
-    };
+    }
 
+    old = $.fn.panelCollapse;
+
+    $.fn.panelCollapse             = Plugin;
     $.fn.panelCollapse.Constructor = PanelCollapse;
 
 
@@ -145,7 +146,7 @@
     $(window).on('load', function () {
         $('[data-panel-collapse="true"]').each(function () {
             var $this = $(this);
-            $this.panelCollapse($this.data());
+            Plugin.call($this, $this.data());
         });
     });
 
