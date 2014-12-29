@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Basic example - Sonatra Bootstrap Panel Collapse</title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../css/panel-collapse.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .panel-actions {
+            float: right;
+            max-width: 68%;
+            text-align: right;
+            padding: 10px 0;
+            line-height: 18px;
+            margin-top: -10px;
+            margin-right: -15px;
+        }
+
+        .panel-actions .btn {
+            margin: -2px 5px;
+        }
+
+        .panel-heading > .clearfix {
+            height: 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="panel panel-default" data-panel-collapse="true">
+    <div class="panel-heading">
+        <div class="panel-actions">
+            <div class="btn-panel-collapse">
+                <button class="btn btn-default btn-xs"><span class="caret"></span></button>
+            </div>
+        </div>
+        <h3 class="panel-title">Panel title</h3>
+
+        <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+        Basic panel example
+    </div>
+</div>
+<script src="../bower_components/jquery/dist/jquery.js"></script>
+<script src="../js/panel-collapse.js"></script>
+</body>
+</html>
