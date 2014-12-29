@@ -115,7 +115,8 @@
             }
 
             if (!data) {
-                $this.data('st.panelcollapse', (data = new PanelCollapse(this, options)));
+                data = new PanelCollapse(this, options);
+                $this.data('st.panelcollapse', data);
             }
 
             if (typeof option === 'string') {
