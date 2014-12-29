@@ -1,0 +1,2 @@
+Sonatra Bootstrap Panel Collapse
+================================
