@@ -1,0 +1,26 @@
+{
+  "name": "sonatra-bootstrap-panel-collapse",
+  "version": "1.0.0",
+  "authors": [
+    "François Pluchino <francois.pluchino@sonatra.com>"
+  ],
+  "description": "A collapsible panel for Bootstrap",
+  "main": "js/panel-collapse.js",
+  "keywords": [
+    "bootstrap",
+    "panel",
+    "collapse",
+    "jquery"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse",
+  "dependencies": {
+    "bootstrap": ">=3.0",
+    "jquery": ">=1.11.0"
+  },
+  "ignore": [
+    "examples",
+    "doc",
+    "README.md"
+  ]
+}
