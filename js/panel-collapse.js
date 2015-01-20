@@ -45,7 +45,7 @@
      */
     var PanelCollapse = function (element, options) {
         this.guid       = jQuery.guid;
-        this.options    = $.extend({}, PanelCollapse.DEFAULTS, options);
+        this.options    = $.extend(true, {}, PanelCollapse.DEFAULTS, options);
         this.$element   = $(element);
         this.$toggle    = $(this.options.collapseSelector, this.$element);
 
