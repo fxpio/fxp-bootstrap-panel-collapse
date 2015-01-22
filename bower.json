@@ -18,6 +18,9 @@
     "bootstrap": ">=3.0",
     "jquery": ">=1.11.0"
   },
+  "devDependencies": {
+    "requirejs": "~2"
+  },
   "ignore": [
     "examples",
     "doc",

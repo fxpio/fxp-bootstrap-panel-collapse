@@ -47,7 +47,18 @@
         Basic panel example
     </div>
 </div>
-<script src="../bower_components/jquery/dist/jquery.js"></script>
-<script src="../js/panel-collapse.js"></script>
+<script>
+    var require = {
+        paths: {
+            'jquery': '../bower_components/jquery/dist/jquery',
+            'sonatra-bootstrap-panel-collapse': '../js/panel-collapse'
+        },
+        deps: ['sonatra-bootstrap-panel-collapse'],
+        callback: function () {
+            $(window).trigger('load');
+        }
+    };
+</script>
+<script src="../bower_components/requirejs/require.js" async="async"></script>
 </body>
 </html>
