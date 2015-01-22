@@ -7,6 +7,7 @@
  * file that was distributed with this source code.
  */
 
+/*global define*/
 /*global jQuery*/
 /*global window*/
 /*global PanelCollapse*/
@@ -14,9 +15,20 @@
 /**
  * @param {jQuery} $
  *
+ * @typedef {object}        define.amd
  * @typedef {PanelCollapse} PanelCollapse
  */
-(function ($) {
+(function (factory) {
+    'use strict';
+
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
     'use strict';
 
     /**
@@ -151,4 +163,4 @@
         });
     });
 
-}(jQuery));
+}));
