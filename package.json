@@ -1,7 +1,30 @@
 {
-  "name": "sonatra-bootstrap-panel-collapse",
-  "description": " ",
-  "repository": {},
+  "name": "@sonatra/bootstrap-panel-collapse",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "François Pluchino <francois.pluchino@sonatra.com>",
+  "contributors": [],
+  "description": "A collapsible panel for Bootstrap",
+  "keywords": [
+    "bootstrap",
+    "panel",
+    "collapse",
+    "jquery"
+  ],
+  "homepage": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/sonatra/sonatra-bootstrap-panel-collapse/issues"
+  },
+  "engines": {},
+  "main": "js/panel-collapse.js",
+  "dependencies": {
+    "jquery": "^2.1.0",
+    "bootstrap": "^3.3.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
@@ -9,9 +32,7 @@
     "time-grunt": "^1.2.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-contrib-less": "^1.0.1",
-    "grunt-browser-sync": "^2.1.3"
-  },
-  "engines": {
-    "node": ">=0.10.0"
+    "grunt-browser-sync": "^2.1.3",
+    "requirejs": "^2.0.0"
   }
 }
