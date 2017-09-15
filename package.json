@@ -17,7 +17,7 @@
     "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse.git"
   },
   "bugs": {
-    "url" : "https://github.com/sonatra/sonatra-bootstrap-panel-collapse/issues"
+    "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse/issues"
   },
   "engines": {},
   "main": "js/panel-collapse.js",
