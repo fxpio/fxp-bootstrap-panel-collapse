@@ -22,8 +22,8 @@
   "engines": {},
   "main": "js/panel-collapse.js",
   "dependencies": {
-    "jquery": "^2.1.0",
-    "bootstrap": "^3.3.0"
+    "bootstrap": "^3.3.7",
+    "jquery": "^2.2.0||^3.2.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
