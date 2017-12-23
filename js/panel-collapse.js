@@ -61,7 +61,7 @@
         this.$element   = $(element);
         this.$toggle    = $(this.options.collapseSelector, this.$element);
 
-        this.$element.on('click.st.panelcollapse', this.$toggle.selector, this, onToggleAction);
+        this.$toggle.on('click.st.panelcollapse', null, this, onToggleAction);
     },
         old;
 
@@ -108,7 +108,7 @@
      * @this PanelCollapse
      */
     PanelCollapse.prototype.destroy = function () {
-        this.$element.off('click.st.panelcollapse', this.$toggle.selector, onToggleAction);
+        this.$toggle.off('click.st.panelcollapse', onToggleAction);
         this.$element.removeData('st.panelcollapse');
     };
 
