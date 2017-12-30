@@ -1,8 +1,8 @@
 {
-  "name": "@sonatra/bootstrap-panel-collapse",
+  "name": "@fxp/bootstrap-panel-collapse",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "François Pluchino <francois.pluchino@sonatra.com>",
+  "author": "François Pluchino <francois.pluchino@gmail.com>",
   "contributors": [],
   "description": "A collapsible panel for Bootstrap",
   "keywords": [
@@ -11,13 +11,13 @@
     "collapse",
     "jquery"
   ],
-  "homepage": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse",
+  "homepage": "https://github.com/fxpio/fxp-bootstrap-panel-collapse",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse.git"
+    "url": "https://github.com/fxpio/fxp-bootstrap-panel-collapse.git"
   },
   "bugs": {
-    "url": "https://github.com/sonatra/sonatra-bootstrap-panel-collapse/issues"
+    "url": "https://github.com/fxpio/fxp-bootstrap-panel-collapse/issues"
   },
   "engines": {},
   "main": "js/panel-collapse.js",

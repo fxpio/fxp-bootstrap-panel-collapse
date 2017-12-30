@@ -1,7 +1,7 @@
 /*
- * This file is part of the Sonatra package.
+ * This file is part of the Fxp package.
  *
- * (c) François Pluchino <francois.pluchino@sonatra.com>
+ * (c) François Pluchino <francois.pluchino@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -61,7 +61,7 @@
         this.$element   = $(element);
         this.$toggle    = $(this.options.collapseSelector, this.$element);
 
-        this.$toggle.on('click.st.panelcollapse', null, this, onToggleAction);
+        this.$toggle.on('click.fxp.panelcollapse', null, this, onToggleAction);
     },
         old;
 
@@ -108,7 +108,7 @@
      * @this PanelCollapse
      */
     PanelCollapse.prototype.destroy = function () {
-        this.$toggle.off('click.st.panelcollapse', onToggleAction);
+        this.$toggle.off('click.fxp.panelcollapse', onToggleAction);
         this.$element.removeData('st.panelcollapse');
     };
 

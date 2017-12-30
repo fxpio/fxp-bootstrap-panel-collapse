@@ -13,7 +13,7 @@ Installation
 ------------
 
 ```
-npm install @sonatra/bootstrap-panel-collapse --save
+npm install @fxp/bootstrap-panel-collapse --save
 ```
 
 Dev installation
