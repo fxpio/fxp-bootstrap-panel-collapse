@@ -7,162 +7,66 @@
  * file that was distributed with this source code.
  */
 
-/*global define*/
-/*global jQuery*/
-/*global window*/
-/*global PanelCollapse*/
+import pluginify from '@fxp/jquery-pluginify';
+import BasePlugin from '@fxp/jquery-pluginify/js/plugin';
+import 'jquery';
+import {onToggleAction} from "./utils/events";
 
 /**
- * @param {jQuery} $
- *
- * @typedef {object}        define.amd
- * @typedef {PanelCollapse} PanelCollapse
+ * Panel Collapse class.
  */
-(function (factory) {
-    'use strict';
-
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
-    'use strict';
-
+export default class PanelCollapse extends BasePlugin
+{
     /**
-     * Action on toggle button.
+     * Constructor.
      *
-     * @param {jQuery.Event|Event} event
-     *
-     * @typedef {PanelCollapse} Event.data The panel collapse instance
-     *
-     * @private
+     * @param {HTMLElement} element The DOM element
+     * @param {object}      options The options
      */
-    function onToggleAction(event) {
-        event.data.toggle();
-    }
+    constructor(element, options = {}) {
+        super(element, options);
 
-    // PANEL COLLAPSE CLASS DEFINITION
-    // ===============================
-
-    /**
-     * @constructor
-     *
-     * @param {string|elements|object|jQuery} element
-     * @param {object}                        options
-     *
-     * @this PanelCollapse
-     */
-    var PanelCollapse = function (element, options) {
-        this.guid       = jQuery.guid;
-        this.options    = $.extend(true, {}, PanelCollapse.DEFAULTS, options);
-        this.$element   = $(element);
-        this.$toggle    = $(this.options.collapseSelector, this.$element);
-
+        this.$toggle = $(this.options.collapseSelector, this.$element);
         this.$toggle.on('click.fxp.panelcollapse', null, this, onToggleAction);
-    },
-        old;
-
-    /**
-     * Defaults options.
-     *
-     * @type {object}
-     */
-    PanelCollapse.DEFAULTS = {
-        classCollapse:       'panel-collapsed',
-        collapseSelector: '> .panel-heading > .panel-actions > .btn-panel-collapse'
-    };
+    }
 
     /**
      * Toggles the panel collapse.
-     *
-     * @this PanelCollapse
      */
-    PanelCollapse.prototype.toggle = function () {
+    toggle() {
         this.$element.toggleClass(this.options.classCollapse);
-    };
+    }
 
     /**
      * Opens the panel collapse.
-     *
-     * @this PanelCollapse
      */
-    PanelCollapse.prototype.open = function () {
+    open() {
         this.$element.removeClass(this.options.classCollapse);
-    };
+    }
 
     /**
      * Closes the panel collapse.
-     *
-     * @this PanelCollapse
      */
-    PanelCollapse.prototype.close = function () {
+    close() {
         this.$element.addClass(this.options.classCollapse);
-    };
-
-    /**
-     * Destroy instance.
-     *
-     * @this PanelCollapse
-     */
-    PanelCollapse.prototype.destroy = function () {
-        this.$toggle.off('click.fxp.panelcollapse', onToggleAction);
-        this.$element.removeData('st.panelcollapse');
-    };
-
-
-    // PANEL COLLAPSE PLUGIN DEFINITION
-    // ================================
-
-    function Plugin(option) {
-        var args = Array.prototype.slice.call(arguments, 1);
-
-        return this.each(function () {
-            var $this   = $(this),
-                data    = $this.data('st.panelcollapse'),
-                options = typeof option === 'object' && option;
-
-            if (!data && option === 'destroy') {
-                return;
-            }
-
-            if (!data) {
-                data = new PanelCollapse(this, options);
-                $this.data('st.panelcollapse', data);
-            }
-
-            if (typeof option === 'string') {
-                data[option].apply(data, args);
-            }
-        });
     }
 
-    old = $.fn.panelCollapse;
+    /**
+     * Destroy the instance.
+     */
+    destroy() {
+        this.$toggle.off('click.fxp.panelcollapse', onToggleAction);
 
-    $.fn.panelCollapse             = Plugin;
-    $.fn.panelCollapse.Constructor = PanelCollapse;
+        super.destroy();
+    }
+}
 
+/**
+ * Defaults options.
+ */
+PanelCollapse.defaultOptions = {
+    classCollapse:       'panel-collapsed',
+    collapseSelector: '> .panel-heading > .panel-actions > .btn-panel-collapse'
+};
 
-    // PANEL COLLAPSE NO CONFLICT
-    // ==========================
-
-    $.fn.panelCollapse.noConflict = function () {
-        $.fn.panelCollapse = old;
-
-        return this;
-    };
-
-
-    // PANEL COLLAPSE DATA-API
-    // =======================
-
-    $(window).on('load', function () {
-        $('[data-panel-collapse="true"]').each(function () {
-            var $this = $(this);
-            Plugin.call($this, $this.data());
-        });
-    });
-
-}));
+pluginify('panelCollapse', 'fxp.panelcollapse', PanelCollapse, true, '[data-panel-collapse="true"]');
