@@ -4,8 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Basic example - Fxp Bootstrap Panel Collapse</title>
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="../css/panel-collapse.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
     <style>
         body {
             padding: 20px;
@@ -47,18 +46,6 @@
         Basic panel example
     </div>
 </div>
-<script>
-    var require = {
-        paths: {
-            'jquery': '../node_modules/jquery/dist/jquery',
-            'fxp-bootstrap-panel-collapse': '../js/panel-collapse'
-        },
-        deps: ['fxp-bootstrap-panel-collapse'],
-        callback: function () {
-            $(window).trigger('load');
-        }
-    };
-</script>
-<script src="../node_modules/requirejs/require.js" async="async"></script>
+<script src="main.js" async="async"></script>
 </body>
 </html>
