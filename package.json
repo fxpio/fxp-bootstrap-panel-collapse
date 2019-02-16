@@ -27,7 +27,7 @@
   "engines": {},
   "main": "js/panel-collapse.js",
   "dependencies": {
-    "@fxp/jquery-pluginify": "github:fxpio/fxp-jquery-pluginify#master",
+    "@fxp/jquery-pluginify": "github:fxpio/fxp-jquery-pluginify#semver:^1.0.0",
     "bootstrap": "^3.3.7",
     "jquery": "^2.2.0||^3.2.0"
   },
