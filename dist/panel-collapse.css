@@ -1,0 +1,14 @@
+.panel.panel-collapsed > *:not(.panel-heading),
+.panel.panel-collapsed > .panel-heading > .panel-buttons {
+  display: none;
+}
+.panel.panel-collapsed > .panel-heading {
+  border-bottom: 0;
+}
+.panel.panel-collapsed > .panel-heading > .panel-actions > .btn-panel-collapse .caret {
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
